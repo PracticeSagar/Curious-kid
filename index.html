@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Curious Kid — Fun Science Facts for Curious Minds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --lavender-top:#d9c3ef;
+    --lavender-bot:#b797e0;
+    --ink:#3b1e70;
+    --ink-deep:#2c1454;
+    --cream:#fff8ed;
+    --yellow:#ffc93c;
+    --orange:#ff7a3d;
+    --pink:#ff5c97;
+    --blue:#4a90d9;
+    --teal:#39b6ad;
+    --green:#6fbf73;
+    --shadow: 0 8px 0 rgba(59,30,112,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Quicksand',sans-serif;
+    color:var(--ink-deep);
+    background:linear-gradient(180deg,var(--lavender-top),var(--lavender-bot) 55%, #a986d6 100%);
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2',cursive;
+    color:var(--cream);
+    -webkit-text-stroke: 2px var(--ink);
+    paint-order: stroke fill;
+    margin:0;
+  }
+  .section-title{
+    font-size:2.4rem;
+    -webkit-text-stroke: 2.5px var(--ink);
+    text-align:center;
+    margin-bottom:6px;
+  }
+  .section-sub{
+    text-align:center;
+    font-weight:700;
+    color:var(--ink);
+    font-family:'Quicksand',sans-serif;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    font-size:.8rem;
+    margin-bottom:36px;
+    opacity:.75;
+  }
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* ---------- decorative scatter ---------- */
+  .scatter{position:absolute;pointer-events:none;}
+  .star{color:var(--yellow); filter:drop-shadow(0 2px 0 rgba(59,30,112,.25));}
+  .twinkle{animation:twinkle 3.2s ease-in-out infinite;}
+  @keyframes twinkle{0%,100%{opacity:.35; transform:scale(.85) rotate(0deg);}50%{opacity:1; transform:scale(1.1) rotate(12deg);}}
+
+  /* ---------- global oceanic bubble layer ---------- */
+  .bg-fx{position:fixed; inset:0; z-index:-1; overflow:hidden; pointer-events:none;}
+  .bubble{
+    position:absolute; bottom:-60px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), rgba(255,255,255,.08) 70%);
+    border:1.5px solid rgba(255,255,255,.35);
+    animation:bubbleRise linear infinite;
+  }
+  @keyframes bubbleRise{
+    0%{transform:translateY(0) translateX(0) scale(.7); opacity:0;}
+    8%{opacity:.9;}
+    50%{transform:translateY(-55vh) translateX(18px) scale(1);}
+    92%{opacity:.5;}
+    100%{transform:translateY(-115vh) translateX(-14px) scale(1.15); opacity:0;}
+  }
+
+  /* ---------- flying creatures ---------- */
+  .flyer{position:absolute; pointer-events:none; will-change:transform;}
+  .fly-path{animation:flyAcross linear infinite;}
+  @keyframes flyAcross{
+    0%{transform:translateX(-15vw) translateY(0) rotate(0deg); opacity:0;}
+    8%{opacity:1;}
+    50%{transform:translateX(55vw) translateY(-46px) rotate(6deg);}
+    92%{opacity:1;}
+    100%{transform:translateX(120vw) translateY(6px) rotate(-4deg); opacity:0;}
+  }
+  .flap{animation:flap .5s ease-in-out infinite alternate;}
+  @keyframes flap{0%{transform:scaleY(1);}100%{transform:scaleY(.72);}}
+  .flutter-wrap{animation:flutter 1.4s ease-in-out infinite;}
+  @keyframes flutter{0%,100%{transform:translateY(0) rotate(-6deg);}50%{transform:translateY(-16px) rotate(8deg);}}
+
+  .drift-cloud{position:absolute; animation:driftCloud 16s ease-in-out infinite alternate;}
+  @keyframes driftCloud{0%{transform:translateX(-40px);}100%{transform:translateX(40px);}}
+
+  .bob{animation:bob 3.4s ease-in-out infinite;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-12px) rotate(2deg);}}
+
+  .tentacle-wave{transform-origin:top center; animation:tentacleWave 2.6s ease-in-out infinite;}
+  @keyframes tentacleWave{0%,100%{transform:rotate(-8deg);}50%{transform:rotate(8deg);}}
+
+  .bee-orbit{animation:beeOrbit 6s ease-in-out infinite;}
+  @keyframes beeOrbit{
+    0%{transform:translate(0,0) rotate(0deg);}
+    25%{transform:translate(34px,-22px) rotate(12deg);}
+    50%{transform:translate(4px,-42px) rotate(0deg);}
+    75%{transform:translate(-32px,-18px) rotate(-12deg);}
+    100%{transform:translate(0,0) rotate(0deg);}
+  }
+
+  .swim{animation:swim 9s ease-in-out infinite;}
+  @keyframes swim{
+    0%,100%{transform:translateX(0) translateY(0) scaleX(1);}
+    48%{transform:translateX(70vw) translateY(-10px) scaleX(1);}
+    50%{transform:translateX(70vw) translateY(-10px) scaleX(-1);}
+    98%{transform:translateX(0) translateY(6px) scaleX(-1);}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .twinkle, .bubble, .fly-path, .flap, .flutter-wrap, .drift-cloud, .bob, .tentacle-wave, .bee-orbit, .swim{
+      animation:none !important;
+    }
+  }
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(217,195,239,0.9);
+    backdrop-filter: blur(6px);
+    border-bottom:3px solid var(--ink);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:12px 24px; max-width:1180px; margin:0 auto;
+  }
+  .logo{
+    font-family:'Baloo 2',cursive;
+    font-size:1.5rem;
+    color:var(--ink);
+    -webkit-text-stroke:0;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .star-badge{
+    width:26px;height:26px;background:var(--yellow);
+    border:2.5px solid var(--ink); border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.85rem; transform:rotate(-10deg);
+  }
+  .nav-links{display:flex; gap:10px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-weight:700; font-size:.85rem; color:var(--ink-deep);
+    background:var(--cream);
+    border:2.5px solid var(--ink);
+    padding:7px 16px; border-radius:20px;
+    box-shadow:0 3px 0 var(--ink);
+    transition:transform .15s ease, box-shadow .15s ease;
+    display:inline-block;
+  }
+  .nav-links li:nth-child(2) a{transform:rotate(-3deg);}
+  .nav-links li:nth-child(3) a{transform:rotate(2deg);}
+  .nav-links li:nth-child(4) a{transform:rotate(-2deg);}
+  .nav-links a:hover{transform:translateY(-3px) rotate(0deg); box-shadow:0 6px 0 var(--ink);}
+  .nav-cta{
+    background:var(--pink) !important; color:#fff !important;
+  }
+  .burger{display:none; background:none;border:none;font-size:1.6rem;color:var(--ink);cursor:pointer;}
+
+  @media (max-width:820px){
+    .nav-links{position:fixed; top:64px; left:0; right:0; background:var(--lavender-top);
+      flex-direction:column; padding:16px 24px; border-bottom:3px solid var(--ink);
+      transform:translateY(-130%); transition:transform .25s ease; }
+    .nav-links.open{transform:translateY(0);}
+    .nav-links a{display:block; text-align:center; transform:none !important;}
+    .burger{display:block;}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;
+    padding:70px 0 90px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns: 1.1fr .9fr; gap:40px; align-items:center;
+  }
+  .eyebrow-ribbon{
+    display:inline-flex; gap:10px; align-items:center;
+    background:var(--ink); color:var(--cream);
+    font-family:'Quicksand'; font-weight:700; font-size:.72rem;
+    letter-spacing:.09em; text-transform:uppercase;
+    padding:8px 18px; border-radius:30px; margin-bottom:18px;
+  }
+  .eyebrow-ribbon .dot{color:var(--yellow);}
+  .hero h1{
+    font-size:5rem; line-height:.95; margin-bottom:6px;
+    -webkit-text-stroke: 3px var(--ink);
+  }
+  .hero h1 span{display:block;}
+  .hero h1 .accent{color:var(--yellow);}
+  .hero-tag{
+    font-weight:700; color:var(--ink); max-width:420px; margin:18px 0 26px;
+    font-size:1.05rem;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; align-items:center;}
+  .btn{
+    font-family:'Baloo 2'; font-weight:700; font-size:1rem;
+    padding:14px 30px; border-radius:40px; border:3px solid var(--ink);
+    box-shadow:0 5px 0 var(--ink); cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-3px); box-shadow:0 8px 0 var(--ink);}
+  .btn:active{transform:translateY(2px); box-shadow:0 2px 0 var(--ink);}
+  .btn-primary{background:var(--orange); color:#fff;}
+  .btn-ghost{background:var(--cream); color:var(--ink-deep);}
+  .age-sticker{
+    position:relative; display:inline-block;
+    background:var(--cream); border:3px solid var(--ink); border-radius:50%;
+    width:120px; height:120px; transform:rotate(-9deg);
+    display:flex; align-items:center; justify-content:center; text-align:center;
+    font-family:'Baloo 2'; font-weight:700; color:var(--ink-deep); font-size:.95rem;
+    box-shadow:var(--shadow); margin-top:28px;
+  }
+  .age-sticker small{display:block; font-family:'Quicksand'; font-weight:700; font-size:.6rem; letter-spacing:.06em; text-transform:uppercase; color:var(--orange); margin-bottom:2px;}
+
+  /* kid-of-month card */
+  .kom-wrap{position:relative;}
+  .kom-cloud{
+    background:var(--cream); border:3px solid var(--ink);
+    border-radius:38px 38px 38px 8px;
+    padding:20px 26px; text-align:center; max-width:320px; margin:0 auto 18px;
+    box-shadow:var(--shadow); position:relative;
+  }
+  .kom-cloud .who{font-weight:700; font-family:'Quicksand'; color:var(--ink-deep); font-size:1.05rem;}
+  .kom-cloud .title{
+    font-family:'Baloo 2'; font-weight:800; font-size:1.35rem; color:var(--orange);
+    -webkit-text-stroke:1.2px var(--ink); line-height:1.15; margin-top:4px;
+  }
+  .kom-photo{
+    width:280px; height:280px; margin:0 auto; border-radius:50%;
+    border:6px solid var(--cream); outline:3px solid var(--ink);
+    background:linear-gradient(160deg,var(--yellow),var(--orange));
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow); position:relative;
+  }
+  .kom-photo svg{width:62%; height:62%;}
+  .kom-tag{
+    background:var(--ink); color:var(--cream); font-family:'Baloo 2';
+    text-align:center; padding:10px 22px; border-radius:20px; max-width:230px;
+    margin:-24px auto 0; position:relative; font-size:.95rem;
+    box-shadow:var(--shadow);
+  }
+  .kom-tag small{display:block; font-family:'Quicksand'; font-weight:700; color:var(--yellow); font-size:.65rem; letter-spacing:.06em; text-transform:uppercase;}
+
+  /* ---------- facts + notes section ---------- */
+  .facts-section{padding:40px 0 80px; position:relative;}
+  .facts-layout{display:grid; grid-template-columns: 1.05fr .95fr; gap:34px; align-items:start;}
+
+  .speech-bubble{
+    background:var(--cream); border:3px solid var(--ink);
+    border-radius:44px; padding:34px 30px; position:relative;
+    box-shadow:var(--shadow);
+  }
+  .speech-bubble::after{
+    content:""; position:absolute; left:56px; bottom:-26px;
+    width:34px; height:34px; background:var(--cream);
+    border-left:3px solid var(--ink); border-bottom:3px solid var(--ink);
+    border-radius:0 0 0 30px; transform:rotate(-40deg);
+  }
+  .fact-row{display:flex; gap:14px; padding:14px 0; border-bottom:2px dashed rgba(59,30,112,0.18);}
+  .fact-row:last-child{border-bottom:none;}
+  .fact-icon{
+    width:46px; height:46px; flex:0 0 46px; border-radius:50%;
+    background:var(--lavender-top); border:2.5px solid var(--ink);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .fact-icon svg{width:26px; height:26px;}
+  .fact-text{font-weight:600; line-height:1.45; font-size:.98rem;}
+  .fact-text b{color:var(--orange);}
+  .fact-text .hl{color:var(--pink);}
+
+  .notes-stack{display:flex; flex-direction:column; gap:18px;}
+  .sticky-note{
+    background:#fff; border:2.5px dashed var(--teal);
+    border-radius:26px; padding:16px 20px;
+    box-shadow:0 4px 0 rgba(59,30,112,.12);
+    font-weight:700; font-size:.92rem; color:var(--ink-deep);
+    display:flex; gap:12px; align-items:flex-start;
+  }
+  .sticky-note:nth-child(odd){transform:rotate(-1.4deg);}
+  .sticky-note:nth-child(even){transform:rotate(1.2deg);}
+  .sticky-note .badge{
+    flex:0 0 34px; height:34px; width:34px; border-radius:50%;
+    background:var(--lavender-top); display:flex; align-items:center; justify-content:center;
+    font-size:1.1rem;
+  }
+  .notes-head{
+    font-family:'Baloo 2'; color:var(--ink); font-size:1.3rem; margin-bottom:14px;
+    -webkit-text-stroke:1.2px var(--ink); display:flex; align-items:center; gap:8px;
+  }
+
+  /* ---------- mascots ---------- */
+  .mascots-section{padding:60px 0 90px; position:relative; overflow:hidden;}
+  .mascot-strip{
+    display:flex; justify-content:center; gap:26px; flex-wrap:wrap;
+    padding-top:10px;
+  }
+  .mascot-card{
+    width:150px; text-align:center; cursor:pointer; perspective:800px;
+    animation:bob 3.4s ease-in-out infinite;
+  }
+  .mascot-card:nth-child(1){animation-delay:0s;}
+  .mascot-card:nth-child(2){animation-delay:.5s;}
+  .mascot-card:nth-child(3){animation-delay:1s;}
+  .mascot-card:nth-child(4){animation-delay:1.5s;}
+  .mascot-card:nth-child(5){animation-delay:2s;}
+  @media (prefers-reduced-motion: reduce){ .mascot-card{animation:none;} }
+  .mascot-circle{
+    width:130px; height:130px; margin:0 auto 12px; border-radius:50%;
+    border:3px solid var(--ink); display:flex; align-items:center; justify-content:center;
+    box-shadow:var(--shadow); transition:transform .25s ease;
+  }
+  .mascot-card:hover .mascot-circle{transform:translateY(-8px) rotate(-4deg);}
+  .mascot-circle svg{width:70%; height:70%;}
+  .mascot-name{font-family:'Baloo 2'; font-weight:700; color:var(--ink); font-size:1.05rem;}
+  .mascot-role{font-size:.75rem; font-weight:700; color:var(--ink-deep); opacity:.65; text-transform:uppercase; letter-spacing:.05em;}
+
+  /* ---------- issues ---------- */
+  .issues-section{padding:20px 0 90px;}
+  .issues-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:26px;}
+  @media(max-width:900px){.issues-grid{grid-template-columns:repeat(2,1fr);}}
+  .issue-card{
+    background:var(--cream); border:3px solid var(--ink); border-radius:22px;
+    padding:14px; box-shadow:var(--shadow); transition:transform .2s ease;
+  }
+  .issue-card:nth-child(odd){transform:rotate(-2deg);}
+  .issue-card:nth-child(even){transform:rotate(2deg);}
+  .issue-card:hover{transform:rotate(0) translateY(-6px);}
+  .issue-cover{
+    aspect-ratio:3/4; border-radius:14px; border:2.5px solid var(--ink);
+    background:linear-gradient(160deg,var(--pink),var(--blue));
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:#fff; font-family:'Baloo 2'; text-align:center; padding:14px; gap:6px;
+    -webkit-text-stroke:1px var(--ink);
+  }
+  .issue-cover .num{font-size:2.2rem;}
+  .issue-cover .theme{font-size:.85rem; -webkit-text-stroke:0;}
+  .issue-meta{text-align:center; margin-top:10px; font-weight:700; font-size:.85rem; color:var(--ink-deep);}
+  .issue-meta small{display:block; opacity:.6; font-weight:600;}
+
+  /* ---------- subscribe ---------- */
+  .subscribe-section{padding:20px 0 100px;}
+  .subscribe-card{
+    background:var(--ink); border-radius:40px; padding:56px 40px;
+    display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:center;
+    position:relative; overflow:hidden; box-shadow:0 10px 0 rgba(0,0,0,0.15);
+  }
+  .subscribe-card .bubble{animation-duration:6s;}
+  .subscribe-card h2{font-size:2.2rem; -webkit-text-stroke:2px #fff; margin-bottom:12px;}
+  .subscribe-card p{color:var(--cream); font-weight:600; opacity:.85; max-width:380px;}
+  .fake-form{display:flex; gap:10px; margin-top:22px; flex-wrap:wrap;}
+  .fake-input{
+    flex:1; min-width:180px; padding:14px 18px; border-radius:30px; border:3px solid var(--cream);
+    background:transparent; color:var(--cream); font-family:'Quicksand'; font-weight:700;
+  }
+  .fake-input::placeholder{color:rgba(255,248,237,.6);}
+  .jar{
+    width:220px; height:220px; margin:0 auto; position:relative; overflow:hidden;
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink); color:var(--cream); padding:50px 0 0; position:relative; overflow:hidden;
+  }
+  .footer-top{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:30px; padding-bottom:36px;}
+  .footer-top h4{font-family:'Baloo 2'; -webkit-text-stroke:0; color:var(--yellow); font-size:1.05rem; margin-bottom:14px;}
+  .footer-top p, .footer-top a{font-size:.88rem; font-weight:600; opacity:.85; line-height:1.9; display:block; color:var(--cream);}
+  .footer-brand{font-family:'Baloo 2'; font-size:1.4rem; color:var(--cream); -webkit-text-stroke:0; margin-bottom:10px;}
+  .footer-bar{
+    border-top:2px dashed rgba(255,248,237,.25);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    padding:18px 0; font-size:.78rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+  }
+  .footer-bar .star{color:var(--yellow); margin:0 8px;}
+
+  @media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;}
+    .hero h1{font-size:3.2rem;}
+    .facts-layout{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr 1fr;}
+  }
+  @media(max-width:560px){
+    .footer-top{grid-template-columns:1fr;}
+    .subscribe-card{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ambient rising bubbles across the whole purple background -->
+<div class="bg-fx" aria-hidden="true">
+  <div class="bubble" style="left:4%; width:18px; height:18px; animation-duration:9s; animation-delay:0s;"></div>
+  <div class="bubble" style="left:12%; width:10px; height:10px; animation-duration:7s; animation-delay:1.4s;"></div>
+  <div class="bubble" style="left:22%; width:26px; height:26px; animation-duration:12s; animation-delay:.6s;"></div>
+  <div class="bubble" style="left:34%; width:14px; height:14px; animation-duration:8.5s; animation-delay:2.2s;"></div>
+  <div class="bubble" style="left:47%; width:20px; height:20px; animation-duration:10.5s; animation-delay:.2s;"></div>
+  <div class="bubble" style="left:58%; width:12px; height:12px; animation-duration:7.8s; animation-delay:3s;"></div>
+  <div class="bubble" style="left:68%; width:24px; height:24px; animation-duration:11s; animation-delay:1s;"></div>
+  <div class="bubble" style="left:78%; width:16px; height:16px; animation-duration:9.5s; animation-delay:2.6s;"></div>
+  <div class="bubble" style="left:88%; width:22px; height:22px; animation-duration:13s; animation-delay:.9s;"></div>
+  <div class="bubble" style="left:95%; width:11px; height:11px; animation-duration:8s; animation-delay:1.8s;"></div>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header>
+  <div class="nav">
+    <a class="logo" href="#top"><span class="star-badge">★</span> The Curious Kid</a>
+    <button class="burger" id="burger">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#facts">Fun Facts</a></li>
+      <li><a href="#mascots">Mascots</a></li>
+      <li><a href="#issues">Issues</a></li>
+      <li><a href="#subscribe" class="nav-cta">Join the Club</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <svg class="scatter twinkle star" style="top:60px; left:6%; width:34px;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.2H23l-6.7 4.9L18.9 21 12 16.1 5.1 21l2.6-7.9L1 8.2h8.4z"/></svg>
+  <svg class="scatter twinkle star" style="top:340px; left:3%; width:22px; animation-delay:1s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.2H23l-6.7 4.9L18.9 21 12 16.1 5.1 21l2.6-7.9L1 8.2h8.4z"/></svg>
+  <svg class="scatter twinkle star" style="top:120px; right:8%; width:26px; animation-delay:.5s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.6 8.2H23l-6.7 4.9L18.9 21 12 16.1 5.1 21l2.6-7.9L1 8.2h8.4z"/></svg>
+
+  <!-- drifting clouds -->
+  <svg class="scatter drift-cloud" style="top:40px; left:20%; width:90px; animation-duration:14s;" viewBox="0 0 100 50" fill="#fff" opacity="0.55"><ellipse cx="30" cy="30" rx="25" ry="16"/><ellipse cx="55" cy="22" rx="22" ry="18"/><ellipse cx="75" cy="32" rx="18" ry="13"/></svg>
+  <svg class="scatter drift-cloud" style="top:90px; right:16%; width:70px; animation-duration:18s; animation-delay:2s;" viewBox="0 0 100 50" fill="#fff" opacity="0.4"><ellipse cx="30" cy="30" rx="25" ry="16"/><ellipse cx="55" cy="22" rx="22" ry="18"/><ellipse cx="75" cy="32" rx="18" ry="13"/></svg>
+
+  <!-- flying birds -->
+  <div class="flyer fly-path" style="top:18%; animation-duration:13s; animation-delay:0s;">
+    <svg class="flap" style="width:32px;" viewBox="0 0 24 12" fill="none"><path d="M1 8c4-8 8-8 11-2 3-6 7-6 11 2-4-2-7 0-11 3-4-3-7-5-11-3z" fill="#3b1e70"/></svg>
+  </div>
+  <div class="flyer fly-path" style="top:8%; animation-duration:17s; animation-delay:5s;">
+    <svg class="flap" style="width:22px;" viewBox="0 0 24 12" fill="none"><path d="M1 8c4-8 8-8 11-2 3-6 7-6 11 2-4-2-7 0-11 3-4-3-7-5-11-3z" fill="#3b1e70" opacity="0.6"/></svg>
+  </div>
+
+  <!-- fluttering butterflies -->
+  <div class="flyer fly-path" style="top:55%; animation-duration:15s; animation-delay:2.5s;">
+    <div class="flutter-wrap">
+      <svg style="width:34px;" viewBox="0 0 40 40"><ellipse cx="14" cy="16" rx="10" ry="8" fill="#ff5c97"/><ellipse cx="26" cy="16" rx="10" ry="8" fill="#ffc93c"/><ellipse cx="14" cy="26" rx="7" ry="6" fill="#ff5c97" opacity="0.8"/><ellipse cx="26" cy="26" rx="7" ry="6" fill="#ffc93c" opacity="0.8"/><rect x="19" y="10" width="2" height="22" rx="1" fill="#3b1e70"/></svg>
+    </div>
+  </div>
+  <div class="flyer fly-path" style="top:30%; animation-duration:19s; animation-delay:8s;">
+    <div class="flutter-wrap">
+      <svg style="width:24px;" viewBox="0 0 40 40"><ellipse cx="14" cy="16" rx="10" ry="8" fill="#4a90d9"/><ellipse cx="26" cy="16" rx="10" ry="8" fill="#39b6ad"/><ellipse cx="14" cy="26" rx="7" ry="6" fill="#4a90d9" opacity="0.8"/><ellipse cx="26" cy="26" rx="7" ry="6" fill="#39b6ad" opacity="0.8"/><rect x="19" y="10" width="2" height="22" rx="1" fill="#3b1e70"/></svg>
+    </div>
+  </div>
+
+  <!-- bobbing octopus waving hello, tucked in the corner -->
+  <div class="scatter bob" style="bottom:-10px; right:2%; width:150px;" aria-hidden="true">
+    <svg viewBox="0 0 120 140">
+      <circle cx="60" cy="55" r="42" fill="#4a90d9" stroke="#3b1e70" stroke-width="3"/>
+      <circle cx="46" cy="48" r="6" fill="#fff"/><circle cx="46" cy="48" r="3" fill="#3b1e70"/>
+      <circle cx="74" cy="48" r="6" fill="#fff"/><circle cx="74" cy="48" r="3" fill="#3b1e70"/>
+      <path d="M50 66c3 4 7 5 10 5s7-1 10-5" stroke="#3b1e70" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <g class="tentacle-wave">
+        <path d="M28 90c-6 14-2 26 8 34" stroke="#4a90d9" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M50 96c-2 16 4 26 12 32" stroke="#4a90d9" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M74 96c4 16-2 26-10 32" stroke="#4a90d9" stroke-width="12" fill="none" stroke-linecap="round"/>
+        <path d="M92 90c8 14 4 26-4 34" stroke="#4a90d9" stroke-width="12" fill="none" stroke-linecap="round"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow-ribbon"><span class="dot">★</span> Educational Edition · Fun Science Facts</span>
+      <h1><span>The</span><span class="accent">Curious</span><span>Kid</span></h1>
+      <p class="hero-tag">A monthly magazine bursting with wild animal facts, weird science, and real curious kids doing amazing things — made for explorers aged 7 to 12.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#issues">Read the Latest Issue</a>
+        <a class="btn btn-ghost" href="#subscribe">Join the Club</a>
+      </div>
+      <div class="age-sticker"><span><small>Perfect for</small>7–12<br>years</span></div>
+    </div>
+
+    <div class="kom-wrap">
+      <div class="kom-cloud">
+        <div class="who">Meet Aarav! ☀️</div>
+        <div class="title">The Curious Kid<br>of the Month</div>
+      </div>
+      <div class="kom-photo">
+        <svg viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="38" r="20" fill="#3b1e70"/>
+          <circle cx="50" cy="40" r="16" fill="#f2c39a"/>
+          <path d="M20 95c2-22 14-34 30-34s28 12 30 34" fill="#3b1e70"/>
+        </svg>
+      </div>
+      <div class="kom-tag"><small>Young Explorer</small>Aarav, Age 9</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FACTS ===================== -->
+<section class="facts-section" id="facts">
+  <div class="wrap">
+    <h2 class="section-title">Did You Know?</h2>
+    <p class="section-sub">Fresh facts, every single issue</p>
+
+    <div class="facts-layout">
+      <div class="speech-bubble">
+        <div class="fact-row">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><path d="M6 19c6 2 13-2 13-11 0-1-.3-2-.3-2S16 8 12 8C7 8 5 12 5 15c0 1.5.4 3 1 4z" fill="#ffc93c" stroke="#3b1e70" stroke-width="1.2"/></svg>
+          </div>
+          <div class="fact-text"><b>Bananas</b> are technically berries — they get their sunny colour from a pigment called <span class="hl">carotenoid</span>.</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6" fill="#4a90d9" stroke="#3b1e70" stroke-width="1.2"/><path d="M6 13c-1 3-2 4-2 6m4-4c-1 3-1 5-1 7m8-9c1 3 2 4 2 6m-6-6c1 3 1 5 1 7" stroke="#3b1e70" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+          </div>
+          <div class="fact-text"><b>Octopuses</b> have <span class="hl">3 hearts</span> and blue blood running through their veins!</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><path d="M8 10h8v9a1 1 0 01-1 1H9a1 1 0 01-1-1v-9z" fill="#ff7a3d" stroke="#3b1e70" stroke-width="1.2"/><rect x="9" y="6" width="6" height="4" fill="#ffc93c" stroke="#3b1e70" stroke-width="1.2"/></svg>
+          </div>
+          <div class="fact-text"><b>Honey</b> never spoils — archaeologists once found a <span class="hl">3,000-year-old jar</span> that was still perfectly edible.</div>
+        </div>
+        <div class="fact-row">
+          <div class="fact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 12c-2-6-9-6-9-1 0 3 4 4 9 5 5-1 9-2 9-5 0-5-7-5-9 1z" fill="#ff5c97" stroke="#3b1e70" stroke-width="1.2"/></svg>
+          </div>
+          <div class="fact-text"><b>Butterflies</b> taste their food with their feet, using tiny sensors called <span class="hl">chemoreceptors</span>.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="notes-head" style="position:relative;">
+          📌 More Amazing Facts!
+          <span class="bee-orbit" style="display:inline-block; margin-left:6px;" aria-hidden="true">
+            <svg style="width:22px;" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="7" ry="5" fill="#ffc93c" stroke="#3b1e70" stroke-width="1.3"/><path d="M8 9v6M12 8v8M16 9v6" stroke="#3b1e70" stroke-width="1.4"/><ellipse cx="5" cy="8" rx="4" ry="3" fill="#fff" opacity="0.7" transform="rotate(-20 5 8)"/><ellipse cx="5" cy="14" rx="4" ry="3" fill="#fff" opacity="0.7" transform="rotate(20 5 14)"/></svg>
+          </span>
+        </div>
+        <div class="notes-stack">
+          <div class="sticky-note"><span class="badge">🐘</span> Elephants can remember familiar smells for years.</div>
+          <div class="sticky-note"><span class="badge">🦩</span> Flamingos are pink because of the shrimp and algae they eat.</div>
+          <div class="sticky-note"><span class="badge">🐸</span> Some frogs build foam nests to keep their eggs safe.</div>
+          <div class="sticky-note"><span class="badge">🐌</span> Snails can sleep for up to <b>3 years</b> at a time.</div>
+          <div class="sticky-note"><span class="badge">🐶</span> Dogs have one-of-a-kind nose prints, just like human fingerprints.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MASCOTS ===================== -->
+<section class="mascots-section" id="mascots">
+  <div class="swim" style="position:absolute; bottom:24px; left:2%; width:60px; z-index:0;" aria-hidden="true">
+    <svg viewBox="0 0 60 34" fill="none"><path d="M4 17c8-14 34-14 42 0-8 14-34 14-42 0z" fill="#39b6ad" stroke="#3b1e70" stroke-width="2"/><path d="M46 17l12-9v18z" fill="#39b6ad" stroke="#3b1e70" stroke-width="2"/><circle cx="16" cy="14" r="2" fill="#3b1e70"/></svg>
+  </div>
+  <div class="wrap" style="position:relative; z-index:1;">
+    <h2 class="section-title">Meet the Gang</h2>
+    <p class="section-sub">Your curious companions this issue</p>
+
+    <div class="mascot-strip">
+      <div class="mascot-card">
+        <div class="mascot-circle" style="background:#ffe08a;">
+          <svg viewBox="0 0 24 24"><path d="M6 19c6 2 13-2 13-11 0-1-.3-2-.3-2S16 8 12 8C7 8 5 12 5 15c0 1.5.4 3 1 4z" fill="#ffc93c" stroke="#3b1e70" stroke-width="1"/></svg>
+        </div>
+        <div class="mascot-name">Bo</div>
+        <div class="mascot-role">the banana</div>
+      </div>
+      <div class="mascot-card">
+        <div class="mascot-circle" style="background:#bfe3ff;">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6" fill="#4a90d9" stroke="#3b1e70" stroke-width="1"/><path d="M6 13c-1 3-2 4-2 6m4-4c-1 3-1 5-1 7m8-9c1 3 2 4 2 6m-6-6c1 3 1 5 1 7" stroke="#3b1e70" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="mascot-name">Inky</div>
+        <div class="mascot-role">the octopus</div>
+      </div>
+      <div class="mascot-card">
+        <div class="mascot-circle" style="background:#ffd1e3;">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="7" ry="6" fill="#ff8fb3" stroke="#3b1e70" stroke-width="1"/><path d="M8 3c1 3 2 5 4 5s3-2 4-5" stroke="#3b1e70" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="mascot-name">Roza</div>
+        <div class="mascot-role">the flamingo</div>
+      </div>
+      <div class="mascot-card">
+        <div class="mascot-circle" style="background:#d7f5cf;">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="15" rx="7" ry="5" fill="#6fbf73" stroke="#3b1e70" stroke-width="1"/><circle cx="9" cy="10" r="2" fill="#fff" stroke="#3b1e70" stroke-width="1"/><circle cx="15" cy="10" r="2" fill="#fff" stroke="#3b1e70" stroke-width="1"/></svg>
+        </div>
+        <div class="mascot-name">Pip</div>
+        <div class="mascot-role">the frog</div>
+      </div>
+      <div class="mascot-card">
+        <div class="mascot-circle" style="background:#e4d9f7;">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="14" rx="8" ry="7" fill="#b9a6d9" stroke="#3b1e70" stroke-width="1"/><path d="M18 12c2 0 3 2 3 4" stroke="#3b1e70" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>
+        </div>
+        <div class="mascot-name">Elle</div>
+        <div class="mascot-role">the elephant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ISSUES ===================== -->
+<section class="issues-section" id="issues">
+  <div class="wrap">
+    <h2 class="section-title">Grab an Issue</h2>
+    <p class="section-sub">Every month, a brand-new adventure</p>
+
+    <div class="issues-grid">
+      <div class="issue-card">
+        <div class="issue-cover" style="background:linear-gradient(160deg,#ff5c97,#4a90d9);">
+          <div class="num">01</div>
+          <div class="theme">Ocean Wonders</div>
+        </div>
+        <div class="issue-meta">Issue 01<small>July 2026</small></div>
+      </div>
+      <div class="issue-card">
+        <div class="issue-cover" style="background:linear-gradient(160deg,#ffc93c,#ff7a3d);">
+          <div class="num">02</div>
+          <div class="theme">Backyard Bugs</div>
+        </div>
+        <div class="issue-meta">Issue 02<small>Aug 2026</small></div>
+      </div>
+      <div class="issue-card">
+        <div class="issue-cover" style="background:linear-gradient(160deg,#6fbf73,#39b6ad);">
+          <div class="num">03</div>
+          <div class="theme">Jungle Giants</div>
+        </div>
+        <div class="issue-meta">Issue 03<small>Sept 2026</small></div>
+      </div>
+      <div class="issue-card">
+        <div class="issue-cover" style="background:linear-gradient(160deg,#b9a6d9,#ff5c97);">
+          <div class="num">04</div>
+          <div class="theme">Space Explorers</div>
+        </div>
+        <div class="issue-meta">Issue 04<small>Oct 2026</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SUBSCRIBE ===================== -->
+<section class="subscribe-section" id="subscribe">
+  <div class="wrap">
+    <div class="subscribe-card">
+      <div>
+        <h2>Join the Curious Club</h2>
+        <p>Get a new issue, a fun fact of the day, and a printable activity sheet delivered every month. Grown-ups welcome too!</p>
+        <div class="fake-form">
+          <input class="fake-input" type="text" placeholder="Parent or guardian email" disabled>
+          <button class="btn btn-primary" type="button" disabled>Subscribe</button>
+        </div>
+      </div>
+      <div class="jar">
+        <div class="bubble" style="left:8%; width:10px; height:10px; animation-delay:0s;"></div>
+        <div class="bubble" style="left:40%; width:7px; height:7px; animation-delay:1.4s;"></div>
+        <div class="bubble" style="left:70%; width:12px; height:12px; animation-delay:.7s;"></div>
+        <div class="bubble" style="left:88%; width:8px; height:8px; animation-delay:2.1s;"></div>
+        <svg viewBox="0 0 100 100">
+          <rect x="24" y="34" width="52" height="52" rx="10" fill="#ffc93c" stroke="#fff8ed" stroke-width="3"/>
+          <rect x="30" y="18" width="40" height="18" rx="6" fill="#ff7a3d" stroke="#fff8ed" stroke-width="3"/>
+          <circle cx="42" cy="60" r="3" fill="#fff8ed"/>
+          <circle cx="58" cy="70" r="3" fill="#fff8ed"/>
+          <circle cx="50" cy="50" r="3" fill="#fff8ed"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand">★ The Curious Kid</div>
+        <p>A magazine made for kids who ask "why" a hundred times a day — and love every answer.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <a href="#facts">Fun Facts</a>
+        <a href="#mascots">Mascots</a>
+        <a href="#issues">Issues</a>
+      </div>
+      <div>
+        <h4>For Grown-Ups</h4>
+        <a href="#">About the Magazine</a>
+        <a href="#">Parent's Corner</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <div>
+        <h4>Join In</h4>
+        <a href="#subscribe">Subscribe</a>
+        <a href="#">Submit a Fact</a>
+        <a href="#">Kid of the Month</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span>Issue 01 <span class="star">★</span> July 2026</span>
+      <span>Explore · Learn · Imagine</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>
+
+</body>
+</html>
